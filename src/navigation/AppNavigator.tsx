@@ -123,6 +123,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import LoginScreen from "../screens/LoginScreen";
+import PatientDashboardScreen from "../screens/PatientDashboardScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -133,6 +134,12 @@ export default function AppNavigator() {
         <Stack.Screen
           name="Login"
           component={LoginScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="PatientDashboard"
+          component={PatientDashboardScreen}
+          options={{ title: "MediFlow" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
