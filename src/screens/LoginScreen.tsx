@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ActivityIndicator, Image, KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import { login } from "../services/api";
 
-type LoginScreenProps = { navigation: { replace: (screen: string) => void } };
+type LoginScreenProps = { navigation: { replace: (screen: string) => void; navigate: (screen: string) => void } };
 
 export default function LoginScreen({ navigation }: LoginScreenProps) {
   const [email, setEmail] = useState("");
@@ -52,6 +52,10 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
           </Pressable>
         </View>
         <Text style={styles.footer}>MediFlow - Better care, closer to you</Text>
+        <Pressable onPress={() => navigation.navigate("Register")} style={styles.registerLink}>
+          <Text style={styles.registerPrompt}>New to MediFlow? </Text>
+          <Text style={styles.registerText}>Create an account</Text>
+        </Pressable>
       </ScrollView>
     </KeyboardAvoidingView>
   );
@@ -79,4 +83,7 @@ const styles = StyleSheet.create({
   buttonPressed: { backgroundColor: "#0E6475" },
   buttonText: { color: "#FFFFFF", fontSize: 16, fontWeight: "700" },
   footer: { color: "#8A9AA1", fontSize: 12, marginTop: 34, textAlign: "center" },
+  registerLink: { alignSelf: "center", flexDirection: "row", marginTop: 18 },
+  registerPrompt: { color: "#60747D", fontSize: 13 },
+  registerText: { color: "#147D92", fontSize: 13, fontWeight: "700" },
 });

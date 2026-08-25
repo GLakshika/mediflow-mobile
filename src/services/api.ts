@@ -5,6 +5,11 @@ export type LoginCredentials = {
   password: string;
 };
 
+export type RegisterCredentials = LoginCredentials & {
+  name: string;
+  role: "PATIENT" | "DOCTOR" | "HOSPITAL_ADMIN";
+};
+
 export type LoginResponse = {
   token?: string;
   accessToken?: string;
@@ -28,5 +33,12 @@ export async function login(
   credentials: LoginCredentials,
 ): Promise<LoginResponse> {
   const response = await api.post<LoginResponse>("/auth/login", credentials);
+  return response.data;
+}
+
+export async function register(
+  credentials: RegisterCredentials,
+): Promise<LoginResponse> {
+  const response = await api.post<LoginResponse>("/auth/register", credentials);
   return response.data;
 }
