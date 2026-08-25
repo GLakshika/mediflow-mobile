@@ -69,10 +69,10 @@ const styles = StyleSheet.create({
   content: { flexGrow: 1, justifyContent: "center", padding: 28 },
   brandRow: { alignItems: "center", flexDirection: "row", marginBottom: 28 },
   logo: { borderRadius: 16, height: 58, marginRight: 14, width: 58 },
-  brandName: { color: "#18333D", fontSize: 25, fontWeight: "800" },
+  brandName: { color: "#18333D", fontSize: 32, fontWeight: "800" },
   eyebrow: { color: "#147D92", fontSize: 12, fontWeight: "700", letterSpacing: 1.5, marginBottom: 10 },
   title: {
-    color: "#18333D", fontSize: 34, fontWeight: "800", lineHeight: 40, marginBottom: 12,
+    color: "#18333D", fontSize: 25, fontWeight: "800", lineHeight: 40, marginBottom: 12,
   },
   subtitle: { color: "#60747D", fontSize: 16, lineHeight: 24, marginBottom: 34 },
   form: { gap: 14 },
