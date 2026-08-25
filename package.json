@@ -1,6 +1,6 @@
 {
   "name": "mediflow-mobile",
-  "main": "expo-router/entry",
+  "main": "index.ts",
   "version": "1.0.0",
   "dependencies": {
     "@expo/ui": "~57.0.13",
@@ -14,7 +14,7 @@
     "expo-glass-effect": "~57.0.1",
     "expo-image": "~57.0.3",
     "expo-linking": "~57.0.7",
-    "expo-router": "~57.0.16",
+    "expo-secure-store": "~57.0.1",
     "expo-splash-screen": "~57.0.8",
     "expo-status-bar": "~57.0.1",
     "expo-symbols": "~57.0.2",
@@ -32,14 +32,17 @@
   },
   "devDependencies": {
     "@types/react": "~19.2.2",
+    "eslint": "^9.0.0",
+    "eslint-config-expo": "~57.0.1",
+    "cross-env": "^10.0.0",
     "typescript": "~6.0.3"
   },
   "scripts": {
-    "start": "expo start",
+    "start": "cross-env EXPO_ROUTER_DISABLE_RN_NAVIGATION_CHECK=1 expo start --clear --port 8081",
     "reset-project": "node ./scripts/reset-project.js",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
+    "android": "cross-env EXPO_ROUTER_DISABLE_RN_NAVIGATION_CHECK=1 expo start --android --port 8081",
+    "ios": "cross-env EXPO_ROUTER_DISABLE_RN_NAVIGATION_CHECK=1 expo start --ios --port 8081",
+    "web": "cross-env EXPO_ROUTER_DISABLE_RN_NAVIGATION_CHECK=1 expo start --web --port 8081",
     "lint": "expo lint"
   },
   "private": true
