@@ -33,6 +33,26 @@ export type Hospital = {
   emergency_status?: string;
 };
 
+export type HospitalDepartment = {
+  id: string;
+  name: string;
+  status?: string;
+};
+
+export type HospitalDoctor = {
+  id: string;
+  doctor_name: string;
+  specialization?: string;
+  available?: boolean;
+  department_name?: string;
+};
+
+export type HospitalDetails = {
+  hospital: Hospital;
+  departments: HospitalDepartment[];
+  doctors: HospitalDoctor[];
+};
+
 const api = axios.create({
   baseURL: "http://10.187.26.19:5000/api",
   headers: {
@@ -67,4 +87,9 @@ export async function register(
 export async function getHospitals(): Promise<Hospital[]> {
   const response = await api.get<{ hospitals: Hospital[] }>("/hospitals");
   return response.data.hospitals;
+}
+
+export async function getHospitalDetails(id: string): Promise<HospitalDetails> {
+  const response = await api.get<HospitalDetails>(`/hospitals/${id}`);
+  return response.data;
 }

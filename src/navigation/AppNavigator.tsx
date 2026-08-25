@@ -3,8 +3,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import AppointmentsScreen from "../screens/AppointmentsScreen";
 import EmergencyScreen from "../screens/EmergencyScreen";
-import HospitalScreen from "../screens/HospitalScreen";
 import HospitalDetailsScreen from "../screens/HospitalDetailsScreen";
+import HospitalScreen from "../screens/HospitalScreen";
 import LoginScreen from "../screens/LoginScreen";
 import NotificationsScreen from "../screens/NotificationsScreen";
 import PatientDashboardScreen from "../screens/PatientDashboardScreen";
