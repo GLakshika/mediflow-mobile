@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import AppointmentsScreen from "../screens/AppointmentsScreen";
 import EmergencyScreen from "../screens/EmergencyScreen";
+import HospitalDetailsScreen from "../screens/HospitalDetailsScreen";
 import HospitalScreen from "../screens/HospitalScreen";
 import LoginScreen from "../screens/LoginScreen";
 import NotificationsScreen from "../screens/NotificationsScreen";
@@ -32,6 +33,7 @@ export default function AppNavigator() {
           options={{ headerShown: false }}
         />
         <Stack.Screen name="Hospitals" component={HospitalScreen} options={{ title: "Find hospitals" }} />
+        <Stack.Screen name="HospitalDetails" component={HospitalDetailsScreen} options={{ title: "Hospital details" }} />
         <Stack.Screen name="Appointments" component={AppointmentsScreen} options={{ title: "My appointments" }} />
         <Stack.Screen name="Queue" component={QueueScreen} options={{ title: "My queue" }} />
         <Stack.Screen name="Notifications" component={NotificationsScreen} options={{ title: "Notifications" }} />

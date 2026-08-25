@@ -1,4 +1,5 @@
 import axios from "axios";
+import * as SecureStore from "expo-secure-store";
 
 export type LoginCredentials = {
   email: string;
@@ -20,11 +21,51 @@ export type LoginResponse = {
   };
 };
 
+export type Hospital = {
+  id: string;
+  name: string;
+  address: string;
+  phone?: string;
+  status?: string;
+  available_beds?: number;
+  emergency_queue?: number;
+  doctors_available?: number;
+  emergency_status?: string;
+};
+
+export type HospitalDepartment = {
+  id: string;
+  name: string;
+  status?: string;
+};
+
+export type HospitalDoctor = {
+  id: string;
+  doctor_name: string;
+  specialization?: string;
+  available?: boolean;
+  department_name?: string;
+};
+
+export type HospitalDetails = {
+  hospital: Hospital;
+  departments: HospitalDepartment[];
+  doctors: HospitalDoctor[];
+};
+
 const api = axios.create({
   baseURL: "http://10.187.26.19:5000/api",
   headers: {
     "Content-Type": "application/json",
   },
+});
+
+api.interceptors.request.use(async (config) => {
+  const token = await SecureStore.getItemAsync("mediflow.authToken");
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
 });
 
 export default api;
@@ -40,5 +81,15 @@ export async function register(
   credentials: RegisterCredentials,
 ): Promise<LoginResponse> {
   const response = await api.post<LoginResponse>("/auth/register", credentials);
+  return response.data;
+}
+
+export async function getHospitals(): Promise<Hospital[]> {
+  const response = await api.get<{ hospitals: Hospital[] }>("/hospitals");
+  return response.data.hospitals;
+}
+
+export async function getHospitalDetails(id: string): Promise<HospitalDetails> {
+  const response = await api.get<HospitalDetails>(`/hospitals/${id}`);
   return response.data;
 }
