@@ -1,6 +1,6 @@
+import * as SecureStore from "expo-secure-store";
 import { useState } from "react";
 import { ActivityIndicator, Image, KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
-import * as SecureStore from "expo-secure-store";
 import { login } from "../services/api";
 
 type LoginScreenProps = { navigation: { replace: (screen: string) => void } };
