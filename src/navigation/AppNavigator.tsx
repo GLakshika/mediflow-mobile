@@ -2,6 +2,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import AppointmentsScreen from "../screens/AppointmentsScreen";
+import BookAppointmentScreen from "../screens/BookAppointmentScreen";
 import EmergencyScreen from "../screens/EmergencyScreen";
 import HospitalDetailsScreen from "../screens/HospitalDetailsScreen";
 import HospitalScreen from "../screens/HospitalScreen";
@@ -34,6 +35,7 @@ export default function AppNavigator() {
         />
         <Stack.Screen name="Hospitals" component={HospitalScreen} options={{ title: "Find hospitals" }} />
         <Stack.Screen name="HospitalDetails" component={HospitalDetailsScreen} options={{ title: "Hospital details" }} />
+        <Stack.Screen name="BookAppointment" component={BookAppointmentScreen} options={{ title: "Book appointment" }} />
         <Stack.Screen name="Appointments" component={AppointmentsScreen} options={{ title: "My appointments" }} />
         <Stack.Screen name="Queue" component={QueueScreen} options={{ title: "My queue" }} />
         <Stack.Screen name="Notifications" component={NotificationsScreen} options={{ title: "Notifications" }} />

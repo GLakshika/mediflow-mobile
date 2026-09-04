@@ -92,7 +92,7 @@ export default function HospitalDetailsScreen({ route, navigation }: HospitalDet
           )) : <Text style={styles.muted}>No doctors listed.</Text>}
         </View>
 
-        <Pressable onPress={() => navigation.navigate("Appointments", { hospitalId: hospital.id })} style={styles.bookButton}><Text style={styles.bookButtonText}>Book an appointment</Text></Pressable>
+        <Pressable onPress={() => navigation.navigate("BookAppointment", { hospitalId: hospital.id })} style={styles.bookButton}><Text style={styles.bookButtonText}>Book an appointment</Text></Pressable>
       </ScrollView>
     </View>
   );
